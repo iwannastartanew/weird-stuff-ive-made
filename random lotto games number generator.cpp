@@ -67,8 +67,8 @@ int main() {
             return 1;
     }
 
-    for (int i=0;i<2;++i) {
-        cout << (i==0?"":"-")<<ticket.numbers[i];
+    for (int i = 0; i < 6; ++i) {
+        cout << (i == 0 ? "" : "-") << ticket.numbers[i];
     }
     cout << endl;
     return 0;
