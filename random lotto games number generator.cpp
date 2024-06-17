@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <vector>
-#include <algorithm> // For std::find and std::sort
+#include <algorithm> 
 
 struct lotto_ticket {
     int numbers[6];
@@ -12,33 +12,39 @@ lotto_ticket generate_numbers(int min, int max, int count) {
     lotto_ticket ticket;
     std::vector<int> chosen;
 
-    while (chosen.size() < count) {
-        int num = std::rand() % (max - min + 1) + min;
-        if (std::find(chosen.begin(), chosen.end(), num) == chosen.end()) {
-            chosen.push_back(num);
-        }
+//selects 'count' unique random numbers within the range [min, max].
+while (chosen.size() < count) {
+    //generate a random number between min and max (inclusive).
+    int num = std::rand() % (max - min + 1) + min;
+    //check if the generated number 'num' is not already in 'chosen'.
+    if (std::find(chosen.begin(), chosen.end(), num) == chosen.end()) {
+        //if 'num' is not in 'chosen', add it to the vector 'chosen'.
+        chosen.push_back(num);
     }
-
-    std::sort(chosen.begin(), chosen.end()); // Sort for output consistency
+}
+    //sort the chosen numbers
+    std::sort(chosen.begin(), chosen.end()); 
     for (int i = 0; i < count; ++i) {
         ticket.numbers[i] = chosen[i];
     }
-
     return ticket;
 }
 
-int main() {
+int main()
+{
+    
     std::srand(static_cast<unsigned>(std::time(0)));
 
-    std::cout << "There are several lotto games that you can play, choose:\n";
-    std::cout << "1. Ultra Lotto 6/58\n";
-    std::cout << "2. Grand Lotto 6/55\n";
-    std::cout << "3. Super Lotto 6/49\n";
-    std::cout << "4. Mega Lotto 6/45\n";
-    std::cout << "5. Lotto 6/42\n";
-    std::cout << "6. 3D Lotto\n";
-    std::cout << "7. 2D Lotto\n";
-    std::cout << "Which do you want to choose: ";
+    std::cout << "There are several lotto games that you can play, choose: " << std::endl;
+    std::cout << "1. Ultra Lotto 6/58" << std::endl;
+    std::cout << "2. Grand Lotto 6/55" << std::endl;
+    std::cout << "3. Super Lotto 6/49" << std::endl;
+    std::cout << "4. Mega Lotto 6/45" << std::endl;
+    std::cout << "5. Lotto 6/42" << std::endl;
+    std::cout << "6. 3D Lotto" << std::endl;
+    std::cout << "7. 2D Lotto" << std::endl;
+    std::cout << "Which games do you want to choose: ";
+
 
     int choice;
     std::cin >> choice;
@@ -77,12 +83,14 @@ int main() {
         case 7:
             ticket = generate_numbers(1, 31, 2);
             std::cout << "Aight! Here are the 2 numbers for 2D Lotto: ";
-            break;
+            std::cout << ticket.numbers[0] << "-" << ticket.numbers[1] << std::endl;
+            return 0; 
         default:
             std::cout << "Invalid choice!";
-            return 1;
+            return 1; 
     }
-    if (choice != 6) { 
+
+    if (choice != 6) {
         for (int i = 0; i < 6; ++i) {
             std::cout << (i == 0 ? "" : "-") << ticket.numbers[i];
         }
