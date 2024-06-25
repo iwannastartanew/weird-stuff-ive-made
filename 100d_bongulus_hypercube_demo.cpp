@@ -13,7 +13,7 @@ auto createHypercube(int dimensions, int size) -> typename std::vector<T>::size_
 }
 
 template <typename T>
-std::string valueFromHypercube(auto& hypercube, const std::vector<int>& indices) {
+std::string valueFromHypercube(std::vector<T>& hypercube, const std::vector<int>& indices) {
     auto* ptr = &hypercube;
     for (int idx : indices) {
         ptr = &(*ptr)[idx];
@@ -23,7 +23,7 @@ std::string valueFromHypercube(auto& hypercube, const std::vector<int>& indices)
 
 int main() {
     const int dimensions = 3;
-    const int sideLength = 5; 
+    const int sideLength = 5;
 
     // CREATE A DIMENSIONAL HYPERCUBE WITH SIDE LENGTH
     auto bongulus = createHypercube<int>(dimensions, sideLength);
@@ -32,6 +32,6 @@ int main() {
     bongulus[1][1][1] = 42; // Example with fewer dimensions
     std::cout << "Value at [1][1][1]: " << bongulus[1][1][1] << std::endl;
 
-    // NOTE: I think we can' handle 100 dimensions directly; this example uses 3 for simplicity
+    // Note: I think we can' handle 100 dimensions directly; this example uses 3 for simplicity
     return 0;
 }
