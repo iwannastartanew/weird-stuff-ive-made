@@ -23,17 +23,24 @@ int main()
         // then extract the first character of this string to get the operator
         char oper = m[2].str()[0];
 
-        if (oper=='+'){
-            cout<<n1<<" + " <<n2<<" = "<<(n1 + n2)<<endl;
-        }
-        else {
-            if(oper=='-') {
-                cout<<n1<<" - "<< n2<<" = "<<(n1 - n2)<<endl;
-            }
+        switch (oper) {
+            case '+':
+                cout << n1 << " + " << n2 << " = " << (n1 + n2) << endl;
+                break;
+            case '-':
+                cout << n1 << " - " << n2 << " = " << (n1 - n2) << endl;
+                break;
+            case '*':
+                cout << n1 << " * " << n2 << " = " << (n1 * n2) << endl;
+                break;
+            default:
+                cout << "Unsupported operator" << endl;
         }
     }
     else {
         cout << "Invalid input" << endl;
     }
+
     return 0;
 }
+
