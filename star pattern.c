@@ -78,3 +78,33 @@ void display(int height) {
         printf("\n");
     }
 }
+/*
+def display(height):
+    point_a1 = height + height // 2
+    point_a2 = point_a1
+    point_b1 = height + height + (height // 2) + 2
+    point_b2 = height // 2 - 2
+    for i in range(height):
+        if i >= (height + 1) // 3:
+            point_b1 -= 3
+            point_b2 += 3
+        for j in range(height * 3):
+            if j == point_a1 or j == point_a2:
+                print("*", end="")
+            elif i >= height // 3 and (j == point_b1 or j == point_b2 or (i == height // 3 and j + 1 != point_a1 and j - 1 != point_a1 and j + 1 != point_a2 and j % 2 == 0)):
+                print("*", end="")
+            else:
+                print(" ", end="")
+        point_a1 -= 1
+        point_a2 += 1
+        print()
+def main():
+    height = int(input())
+    display(height)
+
+if _name_ == "_main_":
+    main()
+
+
+
+*/
