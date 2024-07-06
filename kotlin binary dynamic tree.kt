@@ -39,9 +39,7 @@ fun main() {
 }
 
 
-*/
-
-
+/*
 class TreeNode(var data: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null
@@ -90,7 +88,5 @@ fun main() {
     print("Now, the inorder traversal of the tree is: ")
     inorderTraversal(root)
     println()
-
-
-
+}
 */
